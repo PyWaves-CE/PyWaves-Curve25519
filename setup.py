@@ -3,6 +3,7 @@ from glob import glob
 from setuptools import setup,Extension
 import os
 import re
+from pathlib import Path
 
 def get_version():
     version = "0.4.1-2"
@@ -35,5 +36,27 @@ setup(
     ext_modules = [module_curve],
     author_email='tare2.galal@gmail.com',
     description='curve25519 with ed25519 signatures, used by PyWaves',
+    long_description=Path(__file__).with_name("README.md").read_text(encoding="utf-8"),
+    long_description_content_type='text/markdown',
+    url='https://github.com/PyWaves-CE/PyWaves-Curve25519',
+    python_requires='>=3.8',
+    keywords='cryptography curve25519 ed25519 signatures pywaves',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
+        'Topic :: Security :: Cryptography',
+    ],
+    project_urls={
+        'Bug Reports': 'https://github.com/PyWaves-CE/PyWaves-Curve25519/issues',
+        'Source': 'https://github.com/PyWaves-CE/PyWaves-Curve25519',
+    },
     platforms='any'
 )

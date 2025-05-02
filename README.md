@@ -1,5 +1,20 @@
-This is python wrapper for curve25519 library with ed25519 signatures. The C code was pulled from [libaxolotl-android](https://github.com/WhisperSystems/libaxolotl-android)
-At the moment this wrapper is meant for use by [python-axolotl](http://github.com/tgalal/python-axolotl) and provides the following methods only:
+# PyWaves-Curve25519
+
+This fork is primarily maintained for compatibility with the [Waves blockchain](https://docs.waves.tech/en/blockchain/waves-protocol/cryptographic-practical-details), which uses Curve25519 (ED25519 with X25519 keys) for creating and verifying signatures in its cryptographic implementation.
+
+This is a fork and successor of [python-axolotl-curve25519](https://github.com/tgalal/python-axolotl-curve25519), which has not been updated for a long time and lacks precompiled wheels for modern Python versions.
+
+Key improvements in this fork:
+- Pre-built wheels for Python 3.8 – 3.13 on Windows, macOS (universal2), and Linux (glibc + musl).
+- Modern build system and CI/CD pipeline.
+
+# Installation
+
+```bash
+pip install pywaves-curve25519
+```
+
+# Usage
 
 ```python
 import pywaves_curve25519 as curve
@@ -15,29 +30,3 @@ agreement = curve.calculateAgreement(private_key, public_key)
 signature = curve.calculateSignature(randm64, private_key, message)
 verified = curve.verifySignature(public_key, message, signature) == 0
 ```
-
-# Installation
-
-## Linux
-
-You need to have python headers installed, usually through installing package called python-dev, then as superuser run:
-```
-python setup.py install
-```
-
-## Windows
-
- - Install [mingw](http://www.mingw.org/) compiler
- - Add mingw to your PATH
- - In PYTHONPATH\Lib\distutils create a file called distutils.cfg and add these lines:
- 
-```
-[build]
-compiler=mingw32
-```
-
- - Install gcc: ```mingw-get.exe install gcc```
- - Install zlib [zlib](http://www.zlib.net/)
- - ```python setup.py install```
-
-
