@@ -156,23 +156,23 @@ curve25519_functions[] = {
     static struct PyModuleDef
     curve25519_module = {
         PyModuleDef_HEAD_INIT,
-        "axolotl_curve25519",
+        "pywaves_curve25519",
         NULL,
         0,
         curve25519_functions,
     };
 
     PyObject *
-    PyInit_axolotl_curve25519(void)
+    PyInit_pywaves_curve25519(void)
     {
         return PyModule_Create(&curve25519_module);
     }
 #else
 
     PyMODINIT_FUNC
-    initaxolotl_curve25519(void)
+    initpywaves_curve25519(void)
     {
-        (void)Py_InitModule("axolotl_curve25519", curve25519_functions);
+        (void)Py_InitModule("pywaves_curve25519", curve25519_functions);
     }
 
 #endif

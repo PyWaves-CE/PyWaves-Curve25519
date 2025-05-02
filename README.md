@@ -2,7 +2,7 @@ This is python wrapper for curve25519 library with ed25519 signatures. The C cod
 At the moment this wrapper is meant for use by [python-axolotl](http://github.com/tgalal/python-axolotl) and provides the following methods only:
 
 ```python
-import axolotl_curve25519 as curve
+import pywaves_curve25519 as curve
 import os
 
 randm32 = os.urandom(32)
