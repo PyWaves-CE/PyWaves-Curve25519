@@ -40,13 +40,14 @@ jobs:
       
       - name: Build wheels
         env:
-          CIBW_BUILD: "cp3?-*"
+          CIBW_BUILD: "cp38-* cp39-* cp31?-*"
           CIBW_ARCHS_LINUX: ${{ matrix.arch }}
           CIBW_ARCHS_WINDOWS: ${{ matrix.arch }}
           CIBW_ARCHS_MACOS: universal2
           CIBW_TEST_COMMAND: "python -c \"import pywaves_curve25519\""
           CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28
           CIBW_MANYLINUX_AARCH64_IMAGE: manylinux_2_28
+          CIBW_ENVIRONMENT: "GITHUB_REF=${{ github.ref }}"
         run: python -m cibuildwheel --output-dir wheelhouse
       
       - name: Build sdist
@@ -78,9 +79,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v4
         with:
-          pattern: |
-            sdist
-            wheels
+          pattern: "*"
           merge-multiple: true
           path: dist
       
