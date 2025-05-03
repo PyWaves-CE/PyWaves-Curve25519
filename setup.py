@@ -31,7 +31,7 @@ module_curve = Extension('pywaves_curve25519',
 setup(
     name='PyWaves-Curve25519',
     version=get_version(),
-    license='GPLv3 License',
+    license='GPL-3.0',
     author='Tarek Galal',
     ext_modules = [module_curve],
     author_email='tare2.galal@gmail.com',
@@ -44,7 +44,6 @@ setup(
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
