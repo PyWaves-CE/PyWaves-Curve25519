@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 def get_version():
-    version = "0.4.1-2"
+    version = "1.0.4"
     if 'GITHUB_REF' in os.environ:
         github_ref = os.environ['GITHUB_REF']
         match = re.match(r'refs/tags/v(.*)', github_ref)
@@ -51,6 +51,7 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.14',
         'Topic :: Security :: Cryptography',
     ],
     project_urls={
